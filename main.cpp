@@ -5,40 +5,42 @@ using namespace std::chrono;
 
 int main() {
 start:
-    //auto x = high_resolution_clock::now();
+    std::ios::sync_with_stdio(false); // makes cout faster (according to someone on the internet)
     long long a = 0;
     long long b = 0;
     int choice;
 
-    cout << "Count like a list(1) or in a single line(2): " << endl;
+    cout << "Count like a list(1) or in a single line(2): ";
     cin >> choice;
     switch (choice)
     {
-    case 1:
+    case 1: {
         cout << "Count from: ";
         cin >> a;
         cout << "To: ";
         cin >> b;
         auto x = high_resolution_clock::now();
-        for (int i = a; i <= b; i++) {
-            cout << i << endl;
+        for (long long i = a; i <= b; i++) {
+            cout << i << "\n";
         }
         auto y = high_resolution_clock::now();
-        cout << "took " << duration_cast<seconds>(y - x).count() << " seconds" <<  endl;
+        cout << "took " << duration_cast<milliseconds>(y - x).count() << " ms" <<  endl;
         break;
+    }
     
-    case 2:
+    case 2: {
         cout << "Count from: ";
         cin >> a;
         cout << "To: ";
         cin >> b;
         auto x = high_resolution_clock::now();
-        for (int i = a; i <= b; i++) {
+        for (long long i = a; i <= b; i++) {
             cout << "\r" << i << flush;
         }
         auto y = high_resolution_clock::now();
-        cout << "took " << duration_cast<seconds>(y - x).count() << " seconds" <<  endl;
+        cout << "took " << duration_cast<milliseconds>(y - x).count() << " ms" <<  endl;
         break;
+    }
     default:
         cout << "not an option!" << endl;
         goto start;
