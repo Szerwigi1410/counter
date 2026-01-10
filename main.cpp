@@ -21,7 +21,7 @@ start:
         cin >> b;
         auto x = high_resolution_clock::now();
         for (long long i = a; i <= b; i++) {
-            cout << i << "\n";
+            cerr << i << "\n";
         }
         auto y = high_resolution_clock::now();
         cout << "took " << duration_cast<milliseconds>(y - x).count() << " ms" <<  endl;
